@@ -1,0 +1,144 @@
+/* ******************************************************************* */
+/* FOOTER SECTION STYLING */
+/* ******************************************************************* */
+
+.footer-section {
+    /* ... (Color variables and base setup remain the same) ... */
+    --primary-purple: #560a61; 
+    --footer-text: #FFFFFF;    
+    --footer-icon: #E0E7FF;    
+    
+    background-color: var(--primary-purple);
+    color: var(--footer-text);
+    padding: 0;
+    margin: 0; 
+    width: 100%;
+}
+
+.footer-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    /* Use space-between to push the two main blocks to the edges */
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+    gap: 40px; /* Increased gap for better separation */
+}
+
+/* 1. BRANDING COLUMN (Left Side) - Forced Left Alignment */
+.footer-branding {
+    /* Let the branding content take only the space it needs */
+    flex: 0 1 auto; 
+    min-width: 250px;
+    /* Use margin to push content away from the center */
+    margin-right: auto; 
+}
+
+/* 2. CONTACT COLUMN (Right Side) - Forced Right Alignment */
+.footer-contact {
+    /* Let the contact content take only the space it needs */
+    flex: 0 1 auto; 
+    min-width: 300px;
+}
+
+/* --- CONTACT ITEM ALIGNMENT FIXES --- */
+
+.contact-item {
+    display: flex;
+    /* Use flex-start to align content vertically with the icon */
+    align-items: flex-start; 
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    color: var(--footer-icon);
+    margin-right: 15px;
+    /* FIX: Set a fixed width to ensure text always starts at the same horizontal point */
+    min-width: 1.2rem; 
+}
+
+/* Specific Phone Number Grouping - Vertical Stack Alignment */
+.contact-item.phone-group {
+    align-items: flex-start; /* Icon sits at the top of the number stack */
+}
+
+.phone-numbers {
+    display: flex;
+    flex-direction: column; 
+    line-height: 1.4;
+    /* FIX: Ensure the links/text are aligned to the left of their container */
+    text-align: left; 
+}
+.phone-numbers a {
+    color: white;
+}
+/* Responsiveness: Stack vertically on smaller screens */
+/* ... (Desktop styles remain the same) ... */
+
+/* Responsiveness: Stack vertically on smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .footer-content-container {
+        flex-direction: column; 
+        align-items: center; /* Centers the two main blocks (Branding/Contact) */
+        gap: 30px; 
+    }
+    
+    .footer-branding,
+    .footer-contact {
+        /* Allow full width */
+        min-width: 100%;
+        /* The overall text should be left-aligned on its own column */
+        text-align: left; 
+    }
+
+    /* Override the default center alignment set on the container */
+    .footer-branding {
+        /* Centers the branding block itself on the screen */
+        text-align: center; 
+        margin-right: 0; 
+    }
+
+    .footer-contact h4 {
+        transform: translateX(-10%);
+        /* background-color: red; */
+    }
+    
+    .footer-contact {
+        /* Ensure the H4 heading is centered */
+        text-align: center;
+    }
+
+    /* Fix: Contact items need to be contained and left-aligned */
+    .contact-item {
+        /* Reset to left-align inside the container */
+        justify-content: flex-start;
+        
+        /* Set a max width and use margin auto to center the contact items block */
+        max-width: 300px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Ensure the Get In Touch heading is still centered above the items */
+    .footer-contact h4 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Re-apply left alignment to text/numbers inside the contact item */
+    .contact-item span,
+    .contact-item address,
+    .contact-item a {
+        text-align: left;
+    }
+
+    .phone-numbers {
+        /* Ensure phone numbers stay left-aligned */
+        text-align: left;
+    }
+}

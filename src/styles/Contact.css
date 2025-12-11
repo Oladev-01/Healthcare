@@ -1,0 +1,160 @@
+/* ******************************************************************* */
+/* CONTACT US SECTION STYLING */
+/* ******************************************************************* */
+
+.contact-us-section {
+    background-color: white; 
+    padding: 60px 20px;
+    width: 100%;
+}
+
+.contact-us-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 0; 
+    align-items: stretch; 
+    border: 1px solid #ccc;
+    padding: 20px; /* Reduced to 20px 20px; removed manual override */
+    border-radius: 8px;
+    background-color: #f9f9f9; 
+    overflow: hidden; 
+    box-sizing: border-box; /* IMPORTANT: Ensures padding/border is inside the width */
+}
+
+.contact-us-header {
+    margin-bottom: 40px;
+    font-size: 1.9rem;
+}
+
+/* LEFT COLUMN: Details */
+.contact-details-box {
+    padding: 30px;
+    display: flex;
+    text-align: start;
+    flex-direction: column; 
+    height: 100%; 
+    box-sizing: border-box; /* Ensures padding is inside the grid cell */
+}
+
+.center-name {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* Style for consolidated items */
+.detail-item {
+    margin-bottom: 15px;
+    display: flex; 
+    align-items: flex-start;
+    gap: 10px; 
+    /* Base font size should be manageable */
+    font-size: 1rem; 
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.detail-item address {
+    font-style: normal;
+    /* Allow text to take the remaining space */
+    flex: 1; 
+    /* Ensure address text can break if needed */
+    word-break: break-word; 
+}
+
+.detail-item .label {
+    font-weight: 600;
+    /* DESKTOP FIXED WIDTH: Keep this 150px for desktop/tablet */
+    min-width: 150px; 
+    color: #333;
+    flex-shrink: 0;
+}
+
+.detail-item a {
+    color: #5A1E7A; 
+    text-decoration: none;
+    font-weight: 500;
+    /* Allow link text (especially long URLs) to break */
+    word-break: break-word; 
+}
+
+/* ... (RIGHT COLUMN: Map styles remain the same) ... */
+
+/* ******************************************************************* */
+/* RESPONSIVENESS FIXES (Targeting Mobile/Stacked Layout) */
+/* ******************************************************************* */
+
+@media (max-width: 900px) {
+    .contact-us-section {
+        /* Reduce padding at the container level */
+        padding: 40px 10px; 
+    }
+    
+    .contact-us-content-grid {
+        grid-template-columns: 1fr; /* Stack columns */
+        align-items: stretch;
+        border: none;
+        gap: 20px;
+    }
+    
+    .contact-us-header {
+        font-size: 1.5rem; /* Reduced size */
+        margin-bottom: 20px;
+    }
+    
+    .center-name {
+        font-size: 1.3rem; /* Reduced size */
+    }
+
+    /* FIX 1: Simplify padding and borders on the details box */
+    .contact-details-box {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+    
+    /* FIX 2: Reset font sizes to a manageable level */
+    .detail-item {
+        font-size: 0.95rem; /* Smaller, more manageable font size */
+        flex-wrap: wrap; /* Allow wrapping if content is too wide */
+    }
+
+    /* FIX 3: Drastically reduce fixed width on labels */
+    .detail-item .label {
+        min-width: 90px; /* Reduced from 150px */
+        font-size: 1rem; /* Keep label text clear */
+        /* If the label is still too wide, let it wrap */
+        white-space: normal; 
+    }
+    
+    .detail-item a {
+         font-size: 0.95rem; /* Match item font size */
+         /* Ensure links break gracefully */
+         word-break: break-all;
+    }
+
+    .contact-map-box {
+        min-height: 300px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        /* Reset manual alignments as they are not needed when stacked */
+        justify-content: flex-start; 
+        align-items: flex-start;
+    }
+    
+    /* Hide the desktop map link */
+    .map-link {
+        display: none; 
+    }
+}
+
+@media (max-width: 445px) {
+    .contact-details-box {
+        padding: 15px; /* Further reduced padding for very small screens */
+    }
+    .detail-item .label {
+        min-width: 80px; /* Minimum width for label on smallest phones */
+    }
+}

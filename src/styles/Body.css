@@ -1,0 +1,585 @@
+.main-section {
+    width: 100%;
+}
+
+/* --- BEGIN FIRST HALF --- */
+
+.first-half {
+    /* Use Flexbox to align children horizontally */
+    display: flex;
+    /* Space between the two halves */
+    gap: 40px; 
+    /* Centers the content vertically if one side is taller */
+    align-items: flex-start; 
+    /* Ensures content takes up available width */
+    /* max-width: 1200px; */
+    width: 100%;
+    margin: 0 auto;
+    /* color: white; */
+    padding: 60px 50px;
+    /* background-color: #560a61;; */
+}
+
+/* Ensure both halves take up equal space */
+.left {
+    /* Allow the text container to grow and take up half the space */
+    padding-top: 50px;
+    flex: 1; 
+    /* background-color: red; */
+    text-align: start;
+    /* Set a basis for the width, e.g., 50% */
+    flex-basis: 50%;
+}
+
+.right {
+    /* Allow the image container to grow and take up the other half */
+    flex: 1;
+    flex-basis: 50%;
+    min-height: 100%;
+    /* Ensure the content (image) inside is centered if it doesn't fill the space */
+    display: flex;
+    justify-content: center;
+    /* background-color: green; */
+}
+
+/* --- IMAGE RESIZING --- */
+
+.right img {
+    /* Make the image responsive to its parent container */
+    max-width: 100%; 
+    /* Maintain the image's aspect ratio */
+    height: 500px; 
+    object-fit: cover;
+    /* Optional: Give it a nice rounded corner */
+    border-radius: 10px; 
+    /* Optional: Add a subtle shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+.first-half .left h5 {
+    font: 700 italic 25px / 30px 'Lato', sans-serif;
+    margin: 0;
+    /* font-size: ; */
+}
+
+.first-half .left p {
+    font: 400 italic 18px/25px 'Lato', sans-serif;
+    /* font-size: 17px; */
+    margin: 0;
+    /* margin-bottom: 20px; */
+    line-height: 1.2;
+    padding: 15px 0 0 0;
+}
+
+/* --- RESPONSIVE DESIGN (For Mobile/Tablet) --- */
+
+@media (max-width: 768px) {
+    /* 1. Main Container (Padding and Layout) */
+    .first-half {
+        /* Stack the text and image vertically */
+        flex-direction: column; 
+        /* Reduce the overall padding for less space on smaller screens */
+        padding: 30px 20px; 
+        /* Remove the horizontal gap when stacked vertically */
+        gap: 20px;
+    }
+
+    /* 2. Left (Text) Container Adjustments */
+    .first-half .left {
+        /* Allow them to take up the full width when stacked */
+        flex-basis: 100%; 
+        /* Remove the large top padding applied for desktop alignment */
+        padding-top: 0; 
+        /* Add some padding to the bottom to separate it from the image */
+        padding-bottom: 20px;
+    }
+    
+    .first-half .left h5 {
+        /* Reduce font size for readability on smaller screens */
+        margin-top: 25px;
+        font-size: 1.10rem; /* ~20px */
+        line-height: 1.4;
+    }
+
+    .first-half .left p {
+        /* Reduce font size for readability on smaller screens */
+        font-size: 1rem; /* ~16px */
+        line-height: 1.3;
+        /* Reduce spacing between paragraphs */
+        padding: 10px 0 0 0; 
+    }
+
+    /* 3. Right (Image) Container Adjustments */
+    .first-half .right {
+        /* Allow them to take up the full width when stacked */
+        flex-basis: 100%; 
+        /* Reset min-height since the image size will be controlled by max-width */
+        min-height: auto;
+    }
+
+    .first-half .right img {
+        /* Maintain max-width: 100% */
+        /* CRITICAL: Override the fixed desktop height (500px) */
+        height: 300px; 
+        /* Center the image within its container */
+        margin: 0 auto; 
+    }
+}
+
+
+/* --- Mobile Phone Specific Styling (Max-width: 480px) --- */
+@media (max-width: 480px) {
+    /* General padding reduced further for compact screens */
+    .first-half {
+        padding: 20px 15px; 
+    }
+    
+    /* 1. H5 Reduction */
+    .first-half .left h5 {
+        /* Significantly reduced font size for mobile readability */
+        font-size: 1.10rem; /* Approximately 18.4px */
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+
+    /* 2. Paragraph Reduction */
+    .first-half .left p {
+        /* Further reduced font size */
+        font-size: 0.9rem; /* Approximately 14.4px - Standard readable mobile font size */
+        line-height: 1.5;
+        padding: 8px 0 0 0; /* Reduced padding between paragraphs */
+    }
+
+    /* 3. Image Height Reduction (Optional) */
+    .first-half .right img {
+        height: 250px; /* Make the image less dominant on tiny screens */
+    }
+}
+
+/* ------- END FIRST HALF --------- */
+
+
+/* -------- BEGIN SECOND HALF ------- */
+
+/*
+ * Base Styling for Desktop (two columns, images slanted)
+ */
+.second-half {
+    /* light purple background for the whole section */
+    background-color: var(--light-purple, #E0E7FF); 
+    display: grid;
+    /* Define two columns: equal width for left and right */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+    padding: 60px 40px 20px 40px; /* Padding for the entire section */
+    overflow: hidden; /* Important for containing images and fade effects */
+}
+
+.second-half .left {
+    background-color: white; /* White background for the left div */
+    padding: 30px;
+    color: black; /* Text should be black, not white, for contrast on white background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+}
+
+.second-half .left h3 {
+    font-size: 30px;
+    color: #560a61;
+}
+/* Ensure the link button is visible */
+.second-half .left .button__primary {
+    margin-top: 20px;
+    /* Example color for the button for contrast */
+    background-color: #5C6BC0; 
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* List Styling (Group of three) */
+.second-half .left .amenities-list {
+    display: flex;
+    justify-content: space-between; /* Space between the two ul groups */
+    margin-top: 20px;
+}
+
+.second-half .left .amenities-list ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+    width: 48%; /* Each group takes almost half the space */
+}
+
+.second-half .left .amenities-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+/* Style the React Icons */
+.second-half .left .amenities-list svg {
+    margin-right: 10px;
+    color: var(--light-purple, #E0E7FF); /* Color the icons with the light purple */
+    font-size: 1.25rem;
+}
+
+
+/* * Right Section - Slanted Image Layout
+ */
+/* ... (Existing CSS/SCSS above this section remains the same) ... */
+
+/* * Right Section - Slanted Image Layout */
+.second-half .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Ensure only the first image is visible by default */
+}
+
+.second-half .right img {
+    width: 50%; 
+    height: auto;
+    object-fit: cover;
+    position: absolute; /* Position all images on top of each other */
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-out; /* Smooth movement */
+}
+
+/* ... (Existing CSS/SCSS above this section remains the same) ... */
+
+/* Default state: Hide all but the first image (for small mobile) */
+.second-half .right .img-2,
+.second-half .right .img-3 {
+    display: none;
+}
+
+/* 💻 Desktop Slant Effect (> 1024px) */
+@media (min-width: 1025px) {
+    /* Override hidden rule for desktop */
+    .second-half .right .img-2,
+    .second-half .right .img-3 {
+        display: block;
+    }
+
+    /* Slant positioning - DESKTOP */
+    /* width: 50% from general CSS is used here */
+    .second-half .right .img-1 {
+        z-index: 3;
+        top: 0;
+        /* R-L-R pattern: Right shift (Restored X and Y translations) */
+        transform: translate(10%, 10%); 
+    }
+
+    .second-half .right .img-2 {
+        z-index: 2;
+        /* L shift (Restored X and Y translations) */
+        transform: translate(-5%, -5%); 
+    }
+
+    .second-half .right .img-3 {
+        z-index: 1;
+        bottom: 0;
+        /* R shift (Restored X and Y translations) */
+        transform: translate(15%, -20%); 
+    }
+}
+
+@media (min-width: 1085px) and (max-width: 1115px) {
+        .second-half .right .img-1 {
+        z-index: 3;
+        top: 0;
+        /* R-L-R pattern: Right shift (Restored X and Y translations) */
+        transform: translate(25%, 10%); 
+    }
+
+    .second-half .right .img-2 {
+        z-index: 2;
+        /* L shift (Restored X and Y translations) */
+        transform: translate(-5%, -80%); 
+    }
+
+    .second-half .right .img-3 {
+        z-index: 1;
+        bottom: 0;
+        /* R shift (Restored X and Y translations) */
+        transform: translate(25%, -165%); 
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1085px) {
+    .second-half .right .img-1 {
+        z-index: 3;
+        top: 0;
+        /* R-L-R pattern: Right shift (Restored X and Y translations) */
+        transform: translate(25%, 10%); 
+    }
+
+    .second-half .right .img-2 {
+        z-index: 2;
+        /* L shift (Restored X and Y translations) */
+        transform: translate(-5%, -110%); 
+    }
+
+    .second-half .right .img-3 {
+        z-index: 1;
+        bottom: 0;
+        /* R shift (Restored X and Y translations) */
+        transform: translate(25%, -230%); 
+    }
+
+}
+/* 📱 Tablet Slant Effect (768px to 1024px) */
+@media (max-width: 1024px) {
+    .second-half {
+        /* Stack columns vertically on smaller screens */
+        grid-template-columns: 1fr; 
+        padding: 40px 20px;
+    }
+
+    /* Left content remains the same */
+    .second-half .left {
+        padding: 20px;
+    }
+    
+    /* Amenities list takes full width, remains side-by-side */
+    .second-half .left .amenities-list {
+        flex-direction: row;
+    }
+    
+    .second-half .left .amenities-list ul {
+        width: 48%;
+    }
+
+    /* Image on the right moves to the bottom, single image only */
+    .second-half .right {
+        /* Reset positioning for the single image */
+        position: static; 
+        /* The container should just hold the one visible image */
+        height: auto; 
+        margin-top: 20px;
+    }
+
+    /* Only the first image is displayed (already set by default CSS) */
+    .second-half .right .img-1 {
+        position: static; /* Make it flow normally */
+        width: 70%; /* Full width for mobile view */
+        transform: none; /* Remove slant */
+    }
+
+    /* Ensure the other two images remain hidden */
+    .second-half .right .img-2,
+    .second-half .right .img-3 {
+        display: none;
+    }
+}
+
+/* Smaller mobile screens (optional adjustments) */
+@media (max-width: 600px) {
+     /* Stack amenities list vertically */
+    .second-half .left .amenities-list {
+        flex-direction: column;
+    }
+
+    .second-half .left .amenities-list ul {
+        width: 100%;
+    }
+}
+
+
+/* ------ END SECOND HALF ------- */
+
+/*
+ * GENERAL STYLING (No change from before)
+ */
+.third-half {
+    padding: 60px 40px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.third-half h3 {
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+}
+
+/*
+ * MAIN GRID LAYOUT - Creates the "Inverted Triangle"
+ */
+.third-half .activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; /* Center the list container */
+    max-width: 1400px; /* Example max width for the widest group */
+    
+    display: flex;
+    flex-wrap: wrap; /* Allows the rows to break */
+    justify-content: center; /* Center the rows */
+    gap: 20px; /* Space between cards */
+}
+
+/*
+ * CARD STYLING (Icon on Top, Rectangular Card)
+ */
+.third-half .activity-list li {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stacks icon and text vertically */
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease-out;
+    min-height: 150px; /* Ensures a consistent rectangular height */
+}
+
+/* Icon Styling - Placed at the top */
+.third-half .activity-list .icon-container {
+    font-size: 3rem; 
+    color: #8A2BE2; 
+    margin-bottom: 10px;
+    padding: 0; /* Remove padding if you don't want the circle background */
+    /* Remove background/border if not needed, focusing on simple icon on top */
+    background: none; 
+    border-radius: none; 
+}
+
+.third-half .activity-list h5 {
+    margin-top: auto; /* Pushes text to the bottom if min-height is used */
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+/*
+ * DESKTOP "INVERTED TRIANGLE" STYLING (> 1024px)
+ * This assigns widths to groups of 4 to create the inverted pyramid look.
+ */
+@media (min-width: 1025px) {
+    /* Group 1: Items 1-4 (Widest group) */
+    .third-half .activity-list li:nth-child(-n + 4) {
+        width: 23%; /* Approx 4 items per row + gap */
+        max-width: 300px; /* Control max width */
+    }
+
+    /* Group 2: Items 5-8 (Slightly narrower group) */
+    .third-half .activity-list li:nth-child(n + 5):nth-child(-n + 8) {
+        width: 20%; /* Slightly less width */
+        max-width: 270px;
+    }
+
+    /* Group 3: Items 9-12 (Narrowest group, 3/4 items) */
+    .third-half .activity-list li:nth-child(n + 9) {
+        width: 18%; /* Even less width */
+        max-width: 240px;
+    }
+}
+
+
+/*
+ * RESPONSIVENESS (Wrap layout)
+ */
+
+/* Tablets (1024px and below) */
+/* ... (General desktop styles and inverted triangle styles for min-width: 1025px remain the same) ... */
+
+/* * Heading Adjustments (applies to all screens 1024px and below)
+ */
+.third-half h3 {
+    /* Base Desktop Size: 1.8rem */
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+    .third-half h3 {
+        font-size: 1.6rem; /* Slightly smaller for tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .third-half h3 {
+        font-size: 1.3rem; /* Significantly smaller for mobile */
+        margin-bottom: 25px;
+    }
+}
+
+/*
+ * CARD LAYOUT ADJUSTMENTS
+ */
+
+.third-half .activity-list {
+    /* Ensure padding for the whole section is respected */
+    padding: 0 10px; 
+}
+
+.third-half .activity-list li {
+    /* Make the base min-height a bit flexible */
+    min-height: 140px; 
+    padding: 15px 10px; /* Reduce padding inside the card */
+}
+
+/* * 📱 TABLET LAYOUT (3 columns, 600px to 1024px)
+ * Resets the inverted triangle structure for easier readability on tablets.
+ */
+@media (min-width: 600px) and (max-width: 1024px) {
+    .third-half .activity-list {
+        /* Allow list to use full width and center items */
+        max-width: 1000px; 
+    }
+    
+    /* Reset all list items to be equally sized */
+    .third-half .activity-list li {
+        /* Calculate for 3 items per row with 20px gap */
+        width: calc(33.33% - 15px); 
+        max-width: none;
+    }
+
+    /* Important: Reset the desktop nth-child specific styles */
+    .third-half .activity-list li:nth-child(n) {
+        width: calc(33.33% - 15px); 
+    }
+}
+
+/* * 📱 MOBILE LAYOUT (2 columns, max-width: 599px)
+ */
+@media (max-width: 599px) {
+    .third-half {
+        padding: 30px 10px; /* Reduced overall padding for small screens */
+    }
+
+    .third-half .activity-list {
+        gap: 10px; /* Reduced gap between cards */
+        max-width: 100%;
+        justify-content: space-around; /* Ensure even spacing */
+    }
+
+    /* Cards are in groups of 2 */
+    .third-half .activity-list li {
+        /* Calculate for 2 items per row with 10px gap */
+        width: calc(50% - 10px); 
+        max-width: none;
+        min-height: 120px; /* Smaller min height */
+    }
+    
+    /* Reset desktop and tablet styles */
+    .third-half .activity-list li:nth-child(n) {
+        width: calc(50% - 10px); 
+    }
+    
+    /* Ensure icon size is reasonable */
+    .third-half .activity-list .icon-container {
+        font-size: 2rem; 
+    }
+    
+    .third-half .activity-list h5 {
+        font-size: 0.85rem;
+    }
+}
