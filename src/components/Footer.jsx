@@ -6,11 +6,10 @@ function Footer() {
     // Contact Details
     const landline = "020 7946 0000";
     const mobile = "07700 900000";
-    const email = "contact@successdaycentre.co.uk";
-    const location = "London, United Kingdom";
+    const email = "successrecruitment4@gmail.com";
+    const location = "London, East London, United Kingdom";
 
     return (
-        // The main footer container, background purple, no margins
         <footer className="footer-section">
             <div className="footer-content-container">
                 

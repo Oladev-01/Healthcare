@@ -8,7 +8,7 @@
     /* Use Flexbox to align children horizontally */
     display: flex;
     /* Space between the two halves */
-    gap: 40px; 
+    gap: 60px; 
     /* Centers the content vertically if one side is taller */
     align-items: flex-start; 
     /* Ensures content takes up available width */
@@ -34,7 +34,7 @@
 .right {
     /* Allow the image container to grow and take up the other half */
     flex: 1;
-    flex-basis: 50%;
+    flex-basis: 60%;
     min-height: 100%;
     /* Ensure the content (image) inside is centered if it doesn't fill the space */
     display: flex;

@@ -10,7 +10,7 @@
     top: 0;
     left: 0;
     height: 138px; /* Desktop Height */
-    background-color: white; /* Ensure a background color for the bottom deck */
+    background-color: white; 
     z-index: 1000;
 }
 
@@ -23,13 +23,13 @@
 .nav-bottom {
     flex-grow: 1;
     display: flex;
+    background-color: white; /* Desktop background */
 }
 
-/* This is the base container class, used for both decks. It sets width, padding, and space-between. */
 .container {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Default for bottom bar (Logo left, Contact right) */
+    justify-content: space-between; 
     align-items: center;
     padding-right: 5rem;
     padding-left: 5rem;
@@ -37,18 +37,14 @@
     margin-left: auto;
 }
 
-/* FIX: Override the .container behavior specifically for the top bar to ensure centering */
 .nav-top .container {
-    justify-content: center; /* Forces the content in the top bar to be centered */
+    justify-content: center; 
 }
 
-/* This specific container is inside the nav-top and simply needs to ensure full height */
 .nav-utility-links-container {
     height: 100%;
-    /* Removed redundant flex properties, as .container now manages alignment and justification */
 }
 
-/* This class wraps the NavLinks and ensures they are centered within their parent (nav-utility-links-container) */
 .nav-links {
     display: flex;
     justify-content: center;
@@ -64,24 +60,21 @@
     padding: 16px 15px 11px;
     text-transform: uppercase;
     white-space: nowrap;
-    float: left;
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* DESKTOP: Original Contact Link (Keep it visible on desktop) */
 .nav-contact-desktop {
     color: black;
-    /* font-weight: bold; */
     font-size: 18px;
     padding: 0;
-    float: none;
-    /* Ensure it doesn't look like a menu link */
+    text-decoration: none;
 }
 
-/* Hide the mobile elements on desktop */
+/* Hide mobile elements on desktop */
 .menu-toggle,
-.nav-links-wrapper {
+.nav-links-wrapper,
+.logo-mobile {
     display: none;
 }
 
@@ -95,9 +88,27 @@
     color: black;
 }
 
-.container img {
-    width: 181px;
-    height: 73px;
+/* --- LOGO STYLING --- */
+.container img.logo {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    image-rendering: -webkit-optimize-contrast; 
+    image-rendering: high-quality;
+    object-fit: contain;
+}
+
+.logo-mobile {
+    display: none !important;
+}
+
+/* 2. Style the desktop logo */
+.logo-desktop {
+    display: block;
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 @media (min-width: 576px) {
@@ -106,69 +117,62 @@
     }
 }
 
-
 /* ======================================================= */
 /* MOBILE OVERRIDES (max-width: 768px) */
 /* ======================================================= */
 
 @media (max-width: 768px) {
     
-    /* 1. COLLAPSE NAV BAR HEIGHT */
     .nav-bar {
-        height: 80px; /* Reduced mobile height */
+        height: 80px; 
     }
 
-    /* 2. HIDE TOP DECK COMPLETELY */
     .nav-top {
         display: none;
     }
 
-    /* 3. MOBILE HEADER STYLES */
     .nav-bottom {
-        /* Ensure the mobile header uses the purple background */
-        background-color: #560a61;
-        /* Center content and reduce padding */
+        background-color: #560a61; /* Purple mobile background */
         padding: 0 1rem; 
     }
     
     .container {
-        /* Remove desktop 5rem padding on mobile */
         padding-right: 1rem;
         padding-left: 1rem;
     }
     
-    /* Shrink logo */
-    .container img {
+    /* --- LOGO SWAP LOGIC --- */
+    .logo-desktop {
+        display: none !important; /* Hide the JPG/Logo with white background */
+    }
+
+    .logo-mobile {
+        display: block !important; /* Show the white PNG logo */
+        max-height: 55px;
         width: 120px;
-        height: auto;
+        /* width: auto; */
     }
     
-    /* Hide desktop contact link */
     .nav-contact-desktop {
         display: none;
     }
 
-    /* 4. HAMBURGER MENU */
     .menu-toggle {
-        display: block; /* Show the hamburger icon */
+        display: block; 
         background: none;
         border: none;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: white;
         cursor: pointer;
         padding: 0;
     }
 
-    /* 5. MOBILE DROPDOWN STYLES */
     .nav-links-wrapper {
         display: block;
-        /* Starts right below the 80px tall nav-bar */
         position: absolute;
         top: 80px; 
         left: 0;
         width: 100%;
-        
-        /* Initial state: Hidden */
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease-in-out;
@@ -176,18 +180,16 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* State for open menu */
     .nav-links-wrapper.is-open {
-        max-height: 500px; /* Expands to show content */
+        max-height: 500px; 
         overflow-y: auto;
     }
 
     .nav-main-links {
-        flex-direction: column; /* Stack links vertically */
+        flex-direction: column; 
         padding: 1rem 0;
     }
     
-    /* Full-width link styling for mobile list */
     .nav-main-links .nav-link {
         padding: 12px 20px;
         text-align: left;

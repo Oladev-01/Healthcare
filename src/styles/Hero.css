@@ -1,99 +1,93 @@
+/* ******************************************************************* */
+/* HERO SECTION STYLING */
+/* ******************************************************************* */
+
 .hero {
   position: relative; 
   width: 100%; 
   margin-top: 138px;
   z-index: 100;
   padding: 0;
-  /* FIX 1A: Use a fixed height (or min-height) so the container doesn't collapse */
   height: 500px; 
   overflow: hidden; 
 }
 
-.hero img {
+/* 1. NEW SLIDER CONTAINER */
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  /* FIX 1B: The image must fill the container's fixed height */
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%; 
-  
-  /* FIX 2: Use cover to ensure the image always fills the space */
   object-fit: cover;
-  /* object-position: center center;  */
   display: block; 
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+/* 3. ACTIVE CLASS FOR SLIDER */
+.hero-slider img.active {
+  opacity: 1; /* Only visible image */
 }
 
 .hero-texts {
   position: absolute;
-  top: 50%; /* Start vertical placement at the center */
+  top: 50%;
   left: 0;
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  /* CRITICAL: Horizontal offset (a bit far away from the left) */
-  /* Using a combination of percentage and viewport units is robust */
-  padding-left: 5vw; /* 5% of viewport width for margin */
+  padding-left: 5vw;
   align-items: flex-start;
-  /* Pull the text block up by half its height to perfectly center it vertically */
   transform: translateY(-50%); 
-  /* background-color: red; */
-  
-  /* Optional Text Styling */
   color: white; 
-  max-width: 500px; /* Prevents text from stretching too far */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Improves readability */
+  max-width: 500px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero-texts h6,
 .hero-texts h1,
 .hero-texts h2 {
-  /* Set all margins to zero to remove browser defaults */
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* Style the individual text elements */
 .hero-texts h6 {
-  /* font-size: 1.2rem; */
-  /* margin-bottom: 0.5rem; */
   font: 700 italic 20px/25px 'Lato', sans-serif;
-  /* background-color: red; */
-  /* text-align: start; */
   margin-left: 30px;
-  /* padding: 0; */
 }
 
 .hero-texts h1 {
   font: 800 italic 103px/90px 'Lato', sans-serif;
-  /* padding: 10px 35px 0; */
-  /* margin-bottom: 0.5rem; */
-  color: #A855F7; /* A bright color for emphasis */
+  color: #A855F7; 
 }
 
 .hero-texts h2 {
-  font: 300 italic 45px/50px 'Lato', sans-serif;;
-  /* margin-top: 1rem; */
+  font: 300 italic 40px/50px 'Lato', sans-serif;
   text-align: start;
-  /* padding-left: 35px; */
-  /* background-color: red; */
   color: #C4B5FD;
+  /* background-color: red; */
 }
 
-
-
-/* Styling for the NavLink button */
+/* NavLink button */
 .hero-button {
   display: inline-block; 
-  
   text-decoration: none; 
-  
   color: white; 
   font: 500 italic 15px/20px 'Lato', sans-serif;
-  
   background-color: #A855F7; 
-  
   padding: 12px 20px; 
-  
   border-radius: 50px; 
-  
   margin-top: 1.5rem; 
-  
   transition: background-color 0.3s, transform 0.1s;
 }
 
@@ -102,46 +96,41 @@
   transform: translateY(-2px); 
 }
 
-
 /* ======================================================= */
-/* MOBILE OVERRIDES (max-width: 768px) */
+/* MOBILE max-width: 768px) */
 /* ======================================================= */
 
 @media (max-width: 768px) {
     .hero {
-        /* IMPORTANT: Adjust margin-top to clear the 80px tall mobile navigation */
         margin-top: 80px;
-        /* Reduce overall hero section height for mobile screens */
-        height: 300px; /* Made slightly shorter */
+        height: 300px;
     }
 
     .hero-texts {
-        /* Adjust horizontal padding for smaller screens */
         padding-left: 1rem;
     }
 
-    /* Scaling down typography for better mobile fit */
     .hero-texts h6 {
         margin-left: 20px;
-        font-size: 14px; /* Smaller */
+        font-size: 14px; 
         line-height: 18px;
     }
 
     .hero-texts h1 {
-        font-size: 45px; /* Smaller */
+        font-size: 45px; 
         line-height: 40px;
-        padding: 0 10px 0; /* Reduced padding */
+        padding: 0 10px 0; 
     }
 
     .hero-texts h2 {
-        font-size: 24px; /* Smaller */
+        font-size: 24px; 
         line-height: 30px;
-        padding-left: 10px; /* Reduced padding */
+        padding-left: 10px; 
     }
     
     .hero-button {
-        font-size: 12px; /* Smaller */
+        font-size: 12px; 
         padding: 6px 15px;
-        margin-top: 0.8rem; /* Reduced margin */
+        margin-top: 0.8rem; 
     }
 }

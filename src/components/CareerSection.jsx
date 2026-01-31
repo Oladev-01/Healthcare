@@ -14,7 +14,10 @@ function CareerForm() {
                     Please complete the form below to apply for a role at our centre. All fields marked with an asterisk (<span className="required-star">*</span>) are mandatory.
                 </p>
 
-                <form className="job-application-form">
+                <form className="job-application-form"
+                    action="https://formspree.io/f/xvzryvwb"
+                    method="POST"
+                    enctype="multipart/form-data">
 
                     {/* 1. PERSONAL DETAILS */}
                     <fieldset>
@@ -24,7 +27,7 @@ function CareerForm() {
                             <label htmlFor="fullName">Full Name <span className="required-star">*</span></label>
                             <input type="text" id="fullName" name="fullName" required />
                         </div>
-                        
+
                         <div className="form-group">
                             <label htmlFor="email">Email Address <span className="required-star">*</span></label>
                             <input type="email" id="email" name="email" required />
@@ -35,7 +38,7 @@ function CareerForm() {
                             {/* Uses the common UK format hint for clarity */}
                             <input type="tel" id="phone" name="phone" placeholder="e.g., 07700 900000" required />
                         </div>
-                        
+
                         <div className="form-group">
                             <label htmlFor="postcode">UK Postcode <span className="required-star">*</span></label>
                             <input type="text" id="postcode" name="postcode" placeholder="e.g., SW1A 0AA" required />
@@ -45,7 +48,7 @@ function CareerForm() {
                     {/* 2. ROLE DETAILS */}
                     <fieldset>
                         <legend>2. Role Details</legend>
-                        
+
                         <div className="form-group">
                             <label htmlFor="position">Position Applying For <span className="required-star">*</span></label>
                             <input type="text" id="position" name="position" required placeholder="e.g., Care Assistant, Activity Coordinator" />
@@ -73,7 +76,7 @@ function CareerForm() {
                             <div className="radio-group">
                                 <input type="radio" id="workYes" name="rightToWork" value="yes" required />
                                 <label htmlFor="workYes">Yes</label>
-                                
+
                                 <input type="radio" id="workNo" name="rightToWork" value="no" />
                                 <label htmlFor="workNo">No</label>
                             </div>
@@ -84,7 +87,7 @@ function CareerForm() {
                             <div className="radio-group">
                                 <input type="radio" id="dbsYes" name="dbsChecked" value="yes" />
                                 <label htmlFor="dbsYes">Yes</label>
-                                
+
                                 <input type="radio" id="dbsNo" name="dbsChecked" value="no" defaultChecked />
                                 <label htmlFor="dbsNo">No</label>
                             </div>
@@ -94,14 +97,14 @@ function CareerForm() {
                     {/* 4. DOCUMENTS (CV/Cover Letter) */}
                     <fieldset>
                         <legend>4. Documents</legend>
-                        
+
                         <div className="form-group">
                             <label htmlFor="cvFile">Upload CV / Resume <span className="required-star">*</span></label>
                             {/* Standard file input for CV */}
                             <input type="file" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx" required />
                             <small>Accepted formats: PDF, DOC, DOCX</small>
                         </div>
-                        
+
                         <div className="form-group">
                             <label htmlFor="coverLetter">Cover Letter (Optional)</label>
                             <textarea id="coverLetter" name="coverLetter" rows="6" placeholder="Tell us why you are the best fit for this role..."></textarea>
@@ -109,7 +112,7 @@ function CareerForm() {
                     </fieldset>
 
                     <button type="submit" className="button button__primary submit-btn">Submit Application</button>
-                    
+
                 </form>
             </div>
         </section>
