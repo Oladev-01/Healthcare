@@ -53,6 +53,7 @@ function Body() {
                     <p>
                         We partner closely with families, caregivers, and our wider community to ensure every service user benefits from enriching experiences, strengthened well‑being, and a true sense of belonging. Guided by values of dignity, inclusion, and heartfelt service, we strive to make every day brighter, safer, and more fulfilling for those we serve.
                     </p>
+                    <p>To redefine adult day support by integrating specialized sensory and PLMD care with meaningful social and life skills activities, ensuring every individual feels safe, understood, and supported to live their best life.</p>
                 </div>
 
                 {/* Image on the Right - Slides in from the right */}
